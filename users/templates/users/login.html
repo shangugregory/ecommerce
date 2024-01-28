@@ -1,0 +1,35 @@
+
+{% extends 'store/main.html'%} 
+{% load crispy_forms_tags %}
+{%load static%}
+
+{% block content %}
+<h3 class="text-center">Welcome To Arlio</h3>
+<p class="text-center">Type your e-mail or phone number to log in or create a Arlio account.</p>
+
+
+  <div class="content-section d-flex align-items-center justify-content-center" style="
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  ">
+      <form action="" method="POST">
+        {%csrf_token%}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Sign In </legend>
+            {{form| crispy}}
+        </fieldset>
+        <div class="form-group d-flex align-items-center justify-content-center ">
+            <button class="btn btn-outline-success w-100 p-3" type="submit">Login</button>
+        </div>
+        <p> By continuing you agree to Arlio’s <a href="#">Terms and Conditions</a>
+          </p>
+    </form>    
+    
+  </div>
+  <div class="border-top pt-3">
+    <small class="text-muted"> Need an Account? <a href="{% url 'register' %}">sign Up now</a></small>
+</div>
+{% endblock content %}
